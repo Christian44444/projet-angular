@@ -1,1 +1,36 @@
-<p>utilisateur works!</p>
+<h1>Liste des utilisateurs</h1>
+<div class="utilisateur">
+    <div class="utilisateur">
+        <form #formAjoutUtil="ngForm" (ngSubmit)="createUtil(formAjoutUtil)">
+            <input 
+                required
+                [(ngModel)]="newUtil.nom"
+                name="nom" 
+                type="text"
+                placeholder="Saisissez le nom de l'utilisateur">
+            <input 
+                required
+                [(ngModel)]="newUtil.prenom"
+                name="prenom" 
+                type="text"
+                placeholder="Saisissez le prénom de l'utilisateur">
+            <button type="submit">Ajouter</button>    
+        </form>
+    </div>
+    <div></div>
+    <!--Liste des utilisateurs -->
+    <div class="utilisateur" *ngFor="let util of utils$ | async">
+        <div class="element">
+            <span class="h5" *ngIf="!util.isEditable" [class.used]="util.isUsed" >{{ util.nom }}</span>
+            <input *ngIf="util.isEditable" type="text" [(ngModel)]="util.nom">
+            <span class="h5" *ngIf="!util.isEditable" [class.used]="util.isUsed">{{ util.prenom }}</span>
+            <input *ngIf="util.isEditable" type="text" [(ngModel)]="util.prenom">
+            
+            <div class="buttons, element">
+                <button class="bt-maj" (click)="updateUtil(util)">{{ util.isEditable? '✔︎' : '✎' }}</button> 
+                <button *ngIf="!util.isUsed" class="bt-suppr" (click)="deleteUtil(util)">Supprimer</button>
+                <button *ngIf="util.isUsed" class="bt-suppr">Utilisé!</button>
+            </div>
+        </div>
+    </div>
+</div>

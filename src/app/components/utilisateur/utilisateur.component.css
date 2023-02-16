@@ -1,0 +1,27 @@
+.todos {
+    margin: 10px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px black;
+  }
+  
+  .utilisateurs {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid black;
+    margin: 5px;
+  }
+  .element {
+    display: inline-flex;
+  }
+  .utilisateur:last-of-type {
+    display: inline;
+    border: none;
+  }
+
+  .utilisateur .used {
+    text-decoration: line-through;
+    color: #888;
+  }

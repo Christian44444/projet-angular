@@ -1,0 +1,32 @@
+{
+  "utilisateur": [
+    {
+      "id": "078153e8-cf49-4855-888d-acb505f60279",
+      "nom": "MICHAUD",
+      "prenom": "Christian",
+      "isUsed": false,
+      "isEditable": false
+    },
+    {
+      "id": "7b53cdfe-03cb-469a-af16-3af782639606",
+      "nom": "MICHAUD",
+      "prenom": "Lucas",
+      "isUsed": false,
+      "isEditable": false
+    },
+    {
+      "id": "5e6e8e75-9d3d-4876-81c1-2d72f0620483",
+      "nom": "MICHAUD",
+      "prenom": "Vctor",
+      "isUsed": false,
+      "isEditable": false
+    },
+    {
+      "id": "0b33d391-b41e-4124-93e5-5f851a151d23",
+      "nom": "MICHAUD",
+      "prenom": "Victor",
+      "isUsed": false,
+      "isEditable": false
+    }
+  ]
+}
