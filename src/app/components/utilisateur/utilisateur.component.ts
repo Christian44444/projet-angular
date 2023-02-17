@@ -18,12 +18,23 @@ export class UtilisateurComponent implements OnInit{
     this._utilisateurService.findAll().subscribe();
   }
 
-  createUtil(f?: NgForm){  };
-  updateUtil(u: any){
+  createUtil(f: NgForm) {
+    if (f.valid ) {
+      this._utilisateurService
+          .createOne(this.newUtil)
+          .subscribe()
+      f.reset();     
+    } 
+  };
+
+  updateUtil(u: any) {
     u.isEditable = !u.isEditable;
     this._utilisateurService
       .editOne(u)
       .subscribe();
   };
-  deleteUtil(u?: Utilisateur){ };
+
+  deleteUtil(u: Utilisateur) {
+    this._utilisateurService.deleteOne(u).subscribe();
+  };
 }

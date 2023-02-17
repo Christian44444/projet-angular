@@ -1,13 +1,6 @@
 {
   "utilisateur": [
     {
-      "id": "078153e8-cf49-4855-888d-acb505f60279",
-      "nom": "MICHAUD",
-      "prenom": "Christian",
-      "isUsed": false,
-      "isEditable": false
-    },
-    {
       "id": "7b53cdfe-03cb-469a-af16-3af782639606",
       "nom": "MICHAUD",
       "prenom": "Lucas",
@@ -27,6 +20,22 @@
       "prenom": "Victor",
       "isUsed": false,
       "isEditable": false
+    },
+    {
+      "nom": "MICHAUD",
+      "prenom": "Christian",
+      "id": "olAT7RL",
+      "isEditable": false
+    }
+  ],
+  "categorie": [
+    {
+      "libelle": "Sport",
+      "id": 1
+    },
+    {
+      "libelle": "Courses",
+      "id": 2
     }
   ]
 }

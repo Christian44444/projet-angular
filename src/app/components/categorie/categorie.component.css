@@ -1,0 +1,27 @@
+h1 {
+    margin: 30px;
+}
+.categories{
+    margin: 30px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px black;
+}
+
+.element {
+    display: inline-flex;
+}
+
+.h5 {
+    width: 13rem;
+}
+
+.categorie:last-of-type {
+    display: inline;
+    border: none;
+}
+
+.categorie .used {
+    text-decoration: line-through;
+    color: #888;
+}

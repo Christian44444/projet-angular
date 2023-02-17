@@ -1,1 +1,29 @@
-<p>categorie works!</p>
+<h1>Liste des catégories</h1>
+<div class="categories" >
+    <div class="categorie">
+        <form #formAjoutCateg="ngForm" (ngSubmit)="createCateg(formAjoutCateg)">
+            <input 
+                required
+                [(ngModel)]="newCateg.libelle"
+                name="libelle" 
+                type="text"
+                placeholder="Saisissez le libellé de la catégorie">
+            <button type="submit">Ajouter</button>    
+        </form>
+    </div>
+    
+    <!--Liste des catégories -->
+    <div class="categorie" *ngFor="let categ of categs$ | async">
+        <div class="element">
+            <span class="h5" *ngIf="!categ.isEditable" [class.used]="categ.isUsed">{{ categ.libelle }}</span>
+            <input *ngIf="categ.isEditable" type="text" [(ngModel)]="categ.libelle">
+            
+            <div class="buttons, element">
+                <button class="bt-maj" (click)="updateCateg(categ)">{{ categ.isEditable? '✔︎' : '✎' }}</button> 
+                <button *ngIf="!categ.isUsed" class="bt-suppr" (click)="deleteCateg(categ)">Supprimer</button>
+                <button *ngIf="categ.isUsed" class="bt-suppr">Utilisée!</button>
+            </div>
+        </div>
+    </div>
+</div>
+

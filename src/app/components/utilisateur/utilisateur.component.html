@@ -1,5 +1,5 @@
 <h1>Liste des utilisateurs</h1>
-<div class="utilisateur">
+<div class="utilisateurs" >
     <div class="utilisateur">
         <form #formAjoutUtil="ngForm" (ngSubmit)="createUtil(formAjoutUtil)">
             <input 
@@ -17,11 +17,11 @@
             <button type="submit">Ajouter</button>    
         </form>
     </div>
-    <div></div>
+    
     <!--Liste des utilisateurs -->
     <div class="utilisateur" *ngFor="let util of utils$ | async">
         <div class="element">
-            <span class="h5" *ngIf="!util.isEditable" [class.used]="util.isUsed" >{{ util.nom }}</span>
+            <span class="h5" *ngIf="!util.isEditable" [class.used]="util.isUsed">{{ util.nom }}</span>
             <input *ngIf="util.isEditable" type="text" [(ngModel)]="util.nom">
             <span class="h5" *ngIf="!util.isEditable" [class.used]="util.isUsed">{{ util.prenom }}</span>
             <input *ngIf="util.isEditable" type="text" [(ngModel)]="util.prenom">
