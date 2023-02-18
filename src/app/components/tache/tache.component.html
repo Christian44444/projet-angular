@@ -1,1 +1,29 @@
-<p>tache works!</p>
+<div class="container">
+    <form #formAjoutTodo="ngForm" (ngSubmit)="createTache(formAjoutTodo)">
+        <fieldset>    
+            <div *ngIf="this.utils$.value != [0]">
+                <select id="utilisateur" name="utilisateur" class="custom-select bg-primary text-light">
+                    <option  selected="selected" value="0">Utilisateur</option> <!--*ngIf="i == 0"-->
+                    <option *ngFor?="util of utils$" (click)="selectUtil(util.id)" value={{util.id}}>{{ util.nom }} {{ util.prenom}}</option> 
+                </select>
+            </div>
+            <div>
+                <select id="categorie" name="categorie" class="custom-select bg-primary text-light">
+                    <option selected="selected" value="0">Catégorie</option>
+                    <option value="1">...</option>
+                </select>
+            </div>
+            <div>
+                <input  
+                required         
+                [(ngModel)]="newTache.libelle"
+                name="text"
+                type="text"
+                placeholder="Votre tâche">
+            </div>    
+            <button type="submit">Ajouter</button>        
+        </fieldset> 
+    </form>
+</div>
+
+  
