@@ -22,9 +22,15 @@ export class UtilisateurService {
         tap(utils => this.utils$.next(utils))
         // tap() ne modifie pas utils d'où son utilisation pour mettre à jour le subject
       );
-  }
+  };
   // GET util à faire si besoin
-
+  findOne(id: string): Observable<Utilisateur> {
+    return this._http
+      .get<Utilisateur>(`${this._baseUrl}/${id}`)
+      .pipe(
+        tap(util => this.util$.next(util))
+      );
+  };  
   // POST util
   createOne(u: Utilisateur): Observable<Utilisateur> {
     return this._http

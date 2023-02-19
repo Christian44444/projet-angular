@@ -3,3 +3,14 @@
     border-bottom-right-radius: 0;
 }
   
+#droite {
+    float:right;
+    width:500px;
+    margin-top: 0.2rem;
+}
+#gauche {
+    float: left;
+    margin-top: 0.2rem;
+    margin-right:245px;
+}
+    

@@ -22,6 +22,27 @@ export class TacheService {
         tap(taches => this.taches$.next(taches))
       );
   };
+
+  findAllNonFaites(): Observable<Tache[]> {
+    return this._http
+      .get<Tache[]>(this._baseUrl)
+      .pipe(
+        tap(taches => this.taches$.next(
+          this.taches$.value.filter(t => t.faite != true)
+        ))
+      );
+  };
+
+  findAllFaites(): Observable<Tache[]> {
+    return this._http
+      .get<Tache[]>(this._baseUrl)
+      .pipe(
+        tap(taches => this.taches$.next(
+          this.taches$.value.filter(t => t.faite == true)
+        ))
+      );
+  };
+
   // GET tache à faire si besoin
 
   // POST tache

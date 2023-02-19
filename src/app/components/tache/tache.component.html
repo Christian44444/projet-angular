@@ -1,16 +1,28 @@
 <div class="container">
-    <form #formAjoutTodo="ngForm" (ngSubmit)="createTache(formAjoutTodo)">
+    <form #formAjoutTache="ngForm" (ngSubmit)="createTache(formAjoutTache)">
         <fieldset>    
-            <div *ngIf="this.utils$.value != [0]">
+            <div *ngIf="this.utils$.value.length != 0">
                 <select id="utilisateur" name="utilisateur" class="custom-select bg-primary text-light">
-                    <option  selected="selected" value="0">Utilisateur</option> <!--*ngIf="i == 0"-->
-                    <option *ngFor?="util of utils$" (click)="selectUtil(util.id)" value={{util.id}}>{{ util.nom }} {{ util.prenom}}</option> 
+                    <option  selected="selected" value="">Utilisateur</option>
+                    <option *ngFor="let util of utils$ |async" (click)="selectUtil(util.id)" 
+                        value={{util.id}}>{{ util.nom }} {{ util.prenom}}</option> 
                 </select>
             </div>
-            <div>
+            <div *ngIf="this.utils$.value.length == 0">
+                <select id="utilisateur" name="utilisateur" class="custom-select bg-primary text-light">
+                    <option  selected="selected" value="">Aucun Utilisateur</option>
+                </select>
+            </div>
+            <div *ngIf="this.categs$.value.length != 0">
                 <select id="categorie" name="categorie" class="custom-select bg-primary text-light">
-                    <option selected="selected" value="0">Catégorie</option>
-                    <option value="1">...</option>
+                    <option selected="selected" value="">Catégorie</option>
+                    <option *ngFor="let categ of categs$ | async " (click)="selectCateg(categ.id)"
+                        value={{categ.id}}>{{categ.libelle}}</option>
+                </select>
+            </div>
+            <div *ngIf="this.categs$.value.length == 0">
+                <select id="categorie" name="categorie" class="custom-select bg-primary text-light">
+                    <option  selected="selected" value="">Aucune Catégorie</option>
                 </select>
             </div>
             <div>
@@ -21,9 +33,21 @@
                 type="text"
                 placeholder="Votre tâche">
             </div>    
-            <button type="submit">Ajouter</button>        
         </fieldset> 
+        <button type="submit">Ajouter</button>        
     </form>
-</div>
+    <aside id="gauche">
+        <h1>Tableau des tâches non faites</h1>
+        <div *ngFor="let tache of tachesNonFaites$ |async">
+            {{ tache.libelle }} this.getUtilNom({{ tache.utilisateur_id}})  this.getCatLabel({{tache.categorie_id}})
 
-  
+        </div>
+    </aside>
+    <aside id="droite">
+        <h1>Tableau des tâches faites</h1>
+        <div *ngFor="let tache of tachesFaites$ |async">
+            {{ tache.libelle }} this.getUtilNom({{ tache.utilisateur_id}})  this.getCatLabel({{tache.categorie_id}})
+
+        </div>
+    </aside>
+</div>

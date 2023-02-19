@@ -23,6 +23,13 @@ export class CategorieService {
       );
   };
   // GET categ à faire si besoin
+  findOne(id: string): Observable<Categorie> {
+    return this._http
+      .get<Categorie>(`${this._baseUrl}/${id}`)
+      .pipe(
+        tap(categ => this.categ$.next(categ))  
+      );
+  };  
 
   // POST categ
   createOne(c: Categorie): Observable<Categorie> {
